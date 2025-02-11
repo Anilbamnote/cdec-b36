@@ -37,3 +37,30 @@ terraform.tfstate -  Records the current state of your infrastructure in a file 
 
 
 5. terraformdestroy - delete complete infra
+
+
+
+# variables Types
+--------------------------------------------------------------------
+
+extension: .tf, .tf.json
+
+Data types:
+
+ string: "anil", "1234235" 
+ 
+ number: 143973249 
+ 
+ bool: true/false, 0/1 
+ 
+ list: ["apple", "banana", "apple", 131643,"mango"]   ------ mutable (value change in running script)
+ 
+ tuple: ("apple", "banana", "apple", 131643,"mango") ------ immutable (value not change in running script)
+ 
+ set: {"apple", "banana", 131643, "mango"}  --------- mutable (duplicate value remove,unique value manage)
+ 
+ map: {fruit = "apple", name = "ram", address = "Hingna" } ----key value
+
+```bash
+ terraform plan --var image_id="ami-088b41ffb0933423f"
+``` 
