@@ -22,7 +22,7 @@ resource "aws_instance" "ec2" {
 
 
 provider "aws" {
-    region = "us-east-2"
+    region = "eu-west-2"
 }
 
 resource "aws_instance" "my_instance" {
@@ -68,3 +68,33 @@ output "new_name" {
 output "name" {
     value = [for name in var.my_name : "my name is ${name}"]
 }
+
+
+
+
+
+
+provider "aws" {
+  # Configuration options
+  region = "us-east-2"
+}
+
+
+
+
+module "ec2-vpc_basics" {
+
+    source = "./modules/vpc"
+  
+}
+
+
+terraform {
+  backend "s3" {
+    bucket = "cdecb36-bucket007"
+    key    = "demo/terraform.tfstate"
+    region = "eu-west-2"
+    dynamodb_table = "my-terra-table780-7"
+  }
+}
+
